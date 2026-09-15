@@ -1,0 +1,15 @@
+# Xcode
+#
+build/
+DerivedData/
+*.hmap
+*.ipa
+*.xcuserstate
+project.xcworkspace/xcuserdata/
+project.xcworkspace/xcshareddata/swiftpm/
+*.xcuserdatad
+xcuserdata/
+
+# macOS
+#
+.DS_Store

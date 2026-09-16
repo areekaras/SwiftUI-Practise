@@ -8,11 +8,41 @@
 import SwiftUI
 
 struct ListView: View {
+    
+    @EnvironmentObject var listViewModel: ListViewModel
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack {
+            if listViewModel.items.isEmpty {
+                NoItemsView()
+                    .transition(AnyTransition.opacity.animation(.easeIn))
+            } else {
+                List {
+                    ForEach(listViewModel.items) { item in
+                        ListRowView(item: item)
+                            .onTapGesture {
+                                withAnimation(.linear) {
+                                    listViewModel.updateItem(for: item)
+                                }
+                            }
+                    }
+                    .onDelete(perform: listViewModel.deleteItem)
+                    .onMove(perform: listViewModel.moveItem)
+                }
+                .listStyle(PlainListStyle())
+            }
+        }
+        .navigationTitle("Todo List 📝")
+        .navigationBarItems(
+            leading: EditButton(),
+            trailing: NavigationLink("Add", destination: AddItem())
+        )
     }
 }
 
 #Preview {
-    ListView()
+    NavigationView {
+        ListView()
+    }
+    .environmentObject(ListViewModel())
 }

@@ -10,6 +10,8 @@
 		608304B2305B9E1B00D20557 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 608304AE305B9E1B00D20557 /* Assets.xcassets */; };
 		608304B3305B9E1B00D20557 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 608304AF305B9E1B00D20557 /* ContentView.swift */; };
 		608304B4305B9E1B00D20557 /* SwiftfulMapApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 608304B0305B9E1B00D20557 /* SwiftfulMapApp.swift */; };
+		608304B9305B9FBA00D20557 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 608304B8305B9FBA00D20557 /* Location.swift */; };
+		608304BC305BA04600D20557 /* LocationsDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 608304BB305BA04600D20557 /* LocationsDataService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -17,6 +19,8 @@
 		608304AE305B9E1B00D20557 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		608304AF305B9E1B00D20557 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		608304B0305B9E1B00D20557 /* SwiftfulMapApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftfulMapApp.swift; sourceTree = "<group>"; };
+		608304B8305B9FBA00D20557 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		608304BB305BA04600D20557 /* LocationsDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsDataService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +55,7 @@
 			children = (
 				608304AF305B9E1B00D20557 /* ContentView.swift */,
 				608304B0305B9E1B00D20557 /* SwiftfulMapApp.swift */,
+				608304BA305BA02A00D20557 /* DataServices */,
 				608304B7305B9E3000D20557 /* Views */,
 				608304B6305B9E2900D20557 /* ViewModels */,
 				608304B5305B9E2100D20557 /* Models */,
@@ -62,6 +67,7 @@
 		608304B5305B9E2100D20557 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				608304B8305B9FBA00D20557 /* Location.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -78,6 +84,14 @@
 			children = (
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		608304BA305BA02A00D20557 /* DataServices */ = {
+			isa = PBXGroup;
+			children = (
+				608304BB305BA04600D20557 /* LocationsDataService.swift */,
+			);
+			path = DataServices;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -152,7 +166,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				608304BC305BA04600D20557 /* LocationsDataService.swift in Sources */,
 				608304B3305B9E1B00D20557 /* ContentView.swift in Sources */,
+				608304B9305B9FBA00D20557 /* Location.swift in Sources */,
 				608304B4305B9E1B00D20557 /* SwiftfulMapApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -12,14 +12,17 @@ import MapKit
 class LocationsViewModel: ObservableObject {
     
     @Published var locations: [Location]
+    
     @Published var mapLocation: Location {
         didSet {
             updateMapRegion(for: mapLocation)
         }
     }
-    @Published var mapRegion: MKCoordinateRegion = MKCoordinateRegion()
     
+    @Published var mapRegion: MKCoordinateRegion = MKCoordinateRegion()
     private let mapSpan = MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
+    
+    @Published var showLocationsList: Bool = false
     
     init() {
         let locations = LocationsDataService.locations
@@ -34,6 +37,19 @@ class LocationsViewModel: ObservableObject {
             mapRegion = MKCoordinateRegion(
                 center: location.coordinates,
                 span: mapSpan)
+        }
+    }
+    
+    func toggleLocationsList() {
+        withAnimation(.easeInOut) {
+            showLocationsList.toggle()
+        }
+    }
+    
+    func showNextLocation(with location: Location) {
+        withAnimation(.easeInOut) {
+            self.mapLocation = location
+            showLocationsList = false
         }
     }
 }

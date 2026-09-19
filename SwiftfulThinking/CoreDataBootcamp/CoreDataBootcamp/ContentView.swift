@@ -29,17 +29,14 @@ struct ContentView: View {
                 .onDelete(perform: deleteItems)
             }
             .listStyle(.plain)
-            .toolbar {
-                ToolbarItem(placement: .navigationBarLeading) {
-                    EditButton()
-                }
-                ToolbarItem {
+            .navigationTitle("CoreData Bootcamp")
+            .navigationBarItems(
+                leading: EditButton(),
+                trailing:
                     Button(action: addItem) {
                         Label("Add Item", systemImage: "plus")
                     }
-                }
-            }
-            Text("Select an item")
+            )
         }
     }
 

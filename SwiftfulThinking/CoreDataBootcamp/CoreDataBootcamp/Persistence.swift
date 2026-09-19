@@ -14,9 +14,9 @@ struct PersistenceController {
     static let preview: PersistenceController = {
         let result = PersistenceController(inMemory: true)
         let viewContext = result.container.viewContext
-        for _ in 0..<10 {
-            let newItem = Item(context: viewContext)
-            newItem.timestamp = Date()
+        for index in 0..<10 {
+            let newItem = Fruit(context: viewContext)
+            newItem.name = "Apple \(index)"
         }
         do {
             try viewContext.save()

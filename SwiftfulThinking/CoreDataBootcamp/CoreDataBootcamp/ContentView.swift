@@ -11,73 +11,97 @@ import CoreData
 struct ContentView: View {
     @Environment(\.managedObjectContext) private var viewContext
 
+    
     @FetchRequest(
-        sortDescriptors: [NSSortDescriptor(keyPath: \Item.timestamp, ascending: true)],
-        animation: .default)
-    private var items: FetchedResults<Item>
+        entity: Fruit.entity(),
+        sortDescriptors: [NSSortDescriptor(keyPath: \Fruit.name, ascending: true)])
+    var fruits: FetchedResults<Fruit>
+    
+    @State var textFieldText: String = ""
 
     var body: some View {
         NavigationView {
-            List {
-                ForEach(items) { item in
-                    NavigationLink {
-                        Text("Item at \(item.timestamp!, formatter: itemFormatter)")
-                    } label: {
-                        Text(item.timestamp!, formatter: itemFormatter)
-                    }
+            VStack(spacing: 20) {
+                
+                TextField("Add fruits...", text: $textFieldText)
+                    .font(.headline)
+                    .padding(.leading)
+                    .frame(height: 55)
+                    .frame(maxWidth: .infinity)
+                    .background(Color(#colorLiteral(red: 0.8374180198, green: 0.8374378085, blue: 0.8374271393, alpha: 1)))
+                    .cornerRadius(10)
+                    .padding(.horizontal)
+                
+                
+                Button {
+                    addItem()
+                } label: {
+                    Text("Add Fruit")
+                        .font(.headline)
+                        .fontWeight(.semibold)
+                        .foregroundColor(.white)
+                        .frame(height: 55)
+                        .frame(maxWidth: .infinity)
+                        .background(Color(#colorLiteral(red: 0, green: 0.5898008943, blue: 1, alpha: 1)))
+                        .cornerRadius(10)
                 }
-                .onDelete(perform: deleteItems)
-            }
-            .listStyle(.plain)
-            .navigationTitle("CoreData Bootcamp")
-            .navigationBarItems(
-                leading: EditButton(),
-                trailing:
-                    Button(action: addItem) {
-                        Label("Add Item", systemImage: "plus")
+                .padding(.horizontal)
+
+                
+                List {
+                    ForEach(fruits) { fruit in
+                        Text(fruit.name ?? "")
+                            .onTapGesture {
+                                updateItem(fruit: fruit)
+                            }
                     }
-            )
+                    .onDelete(perform: deleteItems)
+                }
+                .listStyle(.plain)
+            }
+            .navigationTitle("Fruits")
         }
     }
 
     private func addItem() {
         withAnimation {
-            let newItem = Item(context: viewContext)
-            newItem.timestamp = Date()
-
-            do {
-                try viewContext.save()
-            } catch {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                let nsError = error as NSError
-                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-            }
+            let newItem = Fruit(context: viewContext)
+            newItem.name = textFieldText
+            saveItem()
+            textFieldText = ""
         }
     }
 
     private func deleteItems(offsets: IndexSet) {
         withAnimation {
-            offsets.map { items[$0] }.forEach(viewContext.delete)
+            guard let index = offsets.first else { return }
+            let fruit = fruits[index]
+            viewContext.delete(fruit)
 
-            do {
-                try viewContext.save()
-            } catch {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                let nsError = error as NSError
-                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-            }
+            saveItem()
+        }
+    }
+    
+    private func updateItem(fruit: Fruit) {
+        withAnimation {
+            let currentName = fruit.name ?? ""
+            let newName = currentName + "!"
+            fruit.name = newName
+            saveItem()
+        }
+    }
+    
+    private func saveItem() {
+        do {
+            try viewContext.save()
+        } catch {
+            // Replace this implementation with code to handle the error appropriately.
+            // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+            let nsError = error as NSError
+            fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
         }
     }
 }
-
-private let itemFormatter: DateFormatter = {
-    let formatter = DateFormatter()
-    formatter.dateStyle = .short
-    formatter.timeStyle = .medium
-    return formatter
-}()
 
 #Preview {
     ContentView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)

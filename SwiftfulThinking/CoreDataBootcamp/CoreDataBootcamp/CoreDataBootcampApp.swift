@@ -14,8 +14,12 @@ struct CoreDataBootcampApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
-                .environment(\.managedObjectContext, persistenceController.container.viewContext)
+            // Core Data Bootcamp
+//            ContentView()
+//                .environment(\.managedObjectContext, persistenceController.container.viewContext)
+            
+            // Relationship Boot camp
+            RelationshipBootcamp()
         }
     }
 }

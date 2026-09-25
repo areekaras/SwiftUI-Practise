@@ -14,6 +14,20 @@ struct CoinRowView: View {
     
     var body: some View {
         HStack(spacing: 0) {
+            leftColumn
+            Spacer()
+            if showHoldingsColumn {
+                centreColumn
+            }
+            rightColumn
+        }
+        .font(.subheadline)
+    }
+}
+
+extension CoinRowView {
+    private var leftColumn: some View {
+        HStack(spacing: 0) {
             Text("\(coin.rank)")
                 .font(.caption)
                 .foregroundColor(Color.theme.secondary)
@@ -24,33 +38,39 @@ struct CoinRowView: View {
                 .font(.headline)
                 .padding(.leading, 6)
                 .foregroundColor(Color.theme.accent)
-            Spacer()
-            if showHoldingsColumn {
-                VStack(alignment: .trailing) {
-                    Text(coin.currentHoldingsValue.asCurrencyWith2Decimals())
-                        .bold()
-                    Text((coin.currentHoldings ?? 0).asNumberString())
-                }
-                .foregroundColor(Color.theme.accent)
-            }
-            
-            VStack(alignment: .trailing) {
-                Text(coin.currentPrice.asCurrencyWith6Decimals())
-                    .bold()
-                    .foregroundColor(Color.theme.accent)
-                Text((coin.priceChangePercentage24H ?? 0).asPercentString())
-                    .foregroundColor(
-                        (coin.priceChangePercentage24H ?? 0) >= 0 ?
-                        Color.theme.green :
-                        Color.theme.red
-                    )
-            }
-            .frame(width: UIScreen.main.bounds.width / 3.5, alignment: .trailing)
         }
-        .font(.subheadline)
+    }
+    
+    private var centreColumn: some View {
+        VStack(alignment: .trailing) {
+            Text(coin.currentHoldingsValue.asCurrencyWith2Decimals())
+                .bold()
+            Text((coin.currentHoldings ?? 0).asNumberString())
+        }
+        .foregroundColor(Color.theme.accent)
+    }
+    
+    private var rightColumn: some View {
+        VStack(alignment: .trailing) {
+            Text(coin.currentPrice.asCurrencyWith6Decimals())
+                .bold()
+                .foregroundColor(Color.theme.accent)
+            Text((coin.priceChangePercentage24H ?? 0).asPercentString())
+                .foregroundColor(
+                    (coin.priceChangePercentage24H ?? 0) >= 0 ?
+                    Color.theme.green :
+                    Color.theme.red
+                )
+        }
+        .frame(width: UIScreen.main.bounds.width / 3.5, alignment: .trailing)
     }
 }
 
-#Preview {
+#Preview("Light Mode") {
     CoinRowView(coin: DeveloperPreview.instance.coin, showHoldingsColumn: true)
+}
+
+#Preview("Dark Mode") {
+    CoinRowView(coin: DeveloperPreview.instance.coin, showHoldingsColumn: true)
+        .preferredColorScheme(.dark)
 }

@@ -24,6 +24,7 @@
 		60FC5B313067855D00043953 /* CoinImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60FC5B303067855D00043953 /* CoinImageView.swift */; };
 		60FC5B33306787B100043953 /* CoinImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60FC5B32306787A700043953 /* CoinImageService.swift */; };
 		60FC5B35306788B800043953 /* CoinImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60FC5B34306788B800043953 /* CoinImageViewModel.swift */; };
+		60FC5B373067953200043953 /* LocalFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60FC5B363067953200043953 /* LocalFileManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +46,7 @@
 		60FC5B303067855D00043953 /* CoinImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinImageView.swift; sourceTree = "<group>"; };
 		60FC5B32306787A700043953 /* CoinImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinImageService.swift; sourceTree = "<group>"; };
 		60FC5B34306788B800043953 /* CoinImageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinImageViewModel.swift; sourceTree = "<group>"; };
+		60FC5B363067953200043953 /* LocalFileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalFileManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -174,6 +176,7 @@
 			isa = PBXGroup;
 			children = (
 				60FC5B2E3067792100043953 /* NetworkingManager.swift */,
+				60FC5B363067953200043953 /* LocalFileManager.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -254,6 +257,7 @@
 				60FC5B1D306770CC00043953 /* CircleButtonAnimationView.swift in Sources */,
 				60FC5B1E306770CC00043953 /* CircleButtonView.swift in Sources */,
 				60FC5B1F306770CC00043953 /* HomeViewModel.swift in Sources */,
+				60FC5B373067953200043953 /* LocalFileManager.swift in Sources */,
 				60FC5B20306770CC00043953 /* CoinRowView.swift in Sources */,
 				60FC5B313067855D00043953 /* CoinImageView.swift in Sources */,
 				60FC5B21306770CC00043953 /* HomeView.swift in Sources */,

@@ -79,8 +79,8 @@
 		60FC5B0A306770CC00043953 /* CircleButton */ = {
 			isa = PBXGroup;
 			children = (
-				60FC5B08306770CC00043953 /* CircleButtonAnimationView.swift */,
 				60FC5B09306770CC00043953 /* CircleButtonView.swift */,
+				60FC5B08306770CC00043953 /* CircleButtonAnimationView.swift */,
 			);
 			path = CircleButton;
 			sourceTree = "<group>";
@@ -88,6 +88,7 @@
 		60FC5B0B306770CC00043953 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				60FC5B3830679F4C00043953 /* CoinImageView */,
 				60FC5B0A306770CC00043953 /* CircleButton */,
 			);
 			path = Components;
@@ -97,7 +98,6 @@
 			isa = PBXGroup;
 			children = (
 				60FC5B0C306770CC00043953 /* HomeViewModel.swift */,
-				60FC5B34306788B800043953 /* CoinImageViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -105,9 +105,8 @@
 		60FC5B10306770CC00043953 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				60FC5B0E306770CC00043953 /* CoinRowView.swift */,
 				60FC5B0F306770CC00043953 /* HomeView.swift */,
-				60FC5B303067855D00043953 /* CoinImageView.swift */,
+				60FC5B0E306770CC00043953 /* CoinRowView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -179,6 +178,15 @@
 				60FC5B363067953200043953 /* LocalFileManager.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		60FC5B3830679F4C00043953 /* CoinImageView */ = {
+			isa = PBXGroup;
+			children = (
+				60FC5B303067855D00043953 /* CoinImageView.swift */,
+				60FC5B34306788B800043953 /* CoinImageViewModel.swift */,
+			);
+			path = CoinImageView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

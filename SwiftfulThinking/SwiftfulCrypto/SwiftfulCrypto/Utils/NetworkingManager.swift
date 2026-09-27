@@ -10,6 +10,9 @@ import Combine
 
 class NetworkingManager {
     
+    //Enable this to load from mock if API fails
+    private static let enableMockData = true // false //
+    
     enum NetworkingErrors: LocalizedError {
         case badServerResponse(url: URL)
         case unknown
@@ -36,6 +39,11 @@ class NetworkingManager {
         guard let response = output.response as? HTTPURLResponse,
               response.statusCode >= 200 && response.statusCode < 300
         else {
+            #if DEBUG
+            if enableMockData, let mockData = MockDataLoader.loadMockJsonData(for: url) {
+                return mockData
+            }
+            #endif
             throw NetworkingErrors.badServerResponse(url: url)
         }
         return output.data

@@ -13,12 +13,14 @@ class MarketDataService {
     @Published var marketData: MarketDataModel?
     private var marketDataSubscripton: AnyCancellable?
     
+    static let globalURL = "https://api.coingecko.com/api/v3/global"
+    
     init() {
         getData()
     }
     
     private func getData() {
-        guard let url = URL(string: "https://api.coingecko.com/api/v3/global") else { return }
+        guard let url = URL(string: MarketDataService.globalURL) else { return }
         
         marketDataSubscripton = NetworkingManager.download(for: url)
             .decode(type: GlobalData.self, decoder: JSONDecoder())

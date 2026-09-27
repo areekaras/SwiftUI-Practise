@@ -61,6 +61,9 @@
 		60FC5B413067F4FB00043953 /* HomeStatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeStatsView.swift; sourceTree = "<group>"; };
 		60FC5B433068C2AD00043953 /* MarketDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketDataModel.swift; sourceTree = "<group>"; };
 		60FC5B453068C5F800043953 /* MarketDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketDataService.swift; sourceTree = "<group>"; };
+		60FC5B4E3069017900043953 /* CoinMarketsAPI.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = CoinMarketsAPI.json; sourceTree = "<group>"; };
+		60FC5B503069019700043953 /* GlobalAPI.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = GlobalAPI.json; sourceTree = "<group>"; };
+		60FC5B523069026900043953 /* MockDataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDataLoader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,6 +173,7 @@
 		60FC5B1C306770CC00043953 /* SwiftfulCrypto */ = {
 			isa = PBXGroup;
 			children = (
+				60FC5B4D3069015600043953 /* Mocks */,
 				60FC5B2D3067791100043953 /* Utils */,
 				60FC5B16306770CC00043953 /* Extensions */,
 				60FC5B29306770F500043953 /* Services */,
@@ -208,6 +212,16 @@
 				60FC5B34306788B800043953 /* CoinImageViewModel.swift */,
 			);
 			path = CoinImageView;
+			sourceTree = "<group>";
+		};
+		60FC5B4D3069015600043953 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				60FC5B4E3069017900043953 /* CoinMarketsAPI.json */,
+				60FC5B503069019700043953 /* GlobalAPI.json */,
+				60FC5B523069026900043953 /* MockDataLoader.swift */,
+			);
+			path = Mocks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -271,7 +285,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				60FC5B51306901A200043953 /* GlobalAPI.json in Resources */,
 				60FC5B28306770CC00043953 /* Assets.xcassets in Resources */,
+				60FC5B4F3069018900043953 /* CoinMarketsAPI.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -305,6 +321,7 @@
 				60FC5B25306770CC00043953 /* CoinModel.swift in Sources */,
 				60FC5B26306770CC00043953 /* ContentView.swift in Sources */,
 				60FC5B33306787B100043953 /* CoinImageService.swift in Sources */,
+				60FC5B533069026900043953 /* MockDataLoader.swift in Sources */,
 				60FC5B27306770CC00043953 /* SwiftfulCryptoApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

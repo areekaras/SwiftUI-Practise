@@ -87,6 +87,13 @@ extension HomeView {
             
             Text("Price")
                 .frame(minWidth: UIScreen.main.bounds.width / 3.5, alignment: .trailing)
+            
+            Button {
+                
+            } label: {
+                Image(systemName: "arrow.trianglehead.clockwise")
+            }
+
         }
         .font(.caption)
         .foregroundColor(Color.theme.secondaryText)

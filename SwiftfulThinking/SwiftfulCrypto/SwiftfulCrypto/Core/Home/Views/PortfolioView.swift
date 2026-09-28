@@ -31,10 +31,8 @@ struct PortfolioView: View {
                 ToolbarItem(placement: .topBarLeading) {
                     XMarkButton()
                 }
-                if (selectedCoin != nil && selectedCoin?.currentHoldings != Double(quantityText)) {
-                    ToolbarItem(placement: .topBarTrailing) {
-                        trailingNavBarButtons
-                    }
+                ToolbarItem(placement: .topBarTrailing) {
+                    trailingNavBarButtons
                 }
             }
             .onChange(of: vm.searchText) { newValue in

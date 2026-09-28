@@ -89,11 +89,13 @@ extension HomeView {
                 .frame(minWidth: UIScreen.main.bounds.width / 3.5, alignment: .trailing)
             
             Button {
-                
+                withAnimation(.linear(duration: 2.0)) {
+                    vm.reloadData()
+                }
             } label: {
-                Image(systemName: "arrow.trianglehead.clockwise")
+                Image(systemName: "goforward")
             }
-
+            .rotationEffect(Angle(degrees: vm.isLoading ? 360 : 0))
         }
         .font(.caption)
         .foregroundColor(Color.theme.secondaryText)

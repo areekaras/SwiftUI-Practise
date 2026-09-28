@@ -40,6 +40,7 @@
 		60FC5B533069026900043953 /* MockDataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60FC5B523069026900043953 /* MockDataLoader.swift */; };
 		60FC5B55306A26A400043953 /* PortfolioDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60FC5B54306A26A400043953 /* PortfolioDataService.swift */; };
 		60FC5B58306A271300043953 /* PortfolioContainer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 60FC5B56306A271300043953 /* PortfolioContainer.xcdatamodeld */; };
+		60FC5B5A306A47CB00043953 /* HapticManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60FC5B59306A47CB00043953 /* HapticManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -77,6 +78,7 @@
 		60FC5B523069026900043953 /* MockDataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDataLoader.swift; sourceTree = "<group>"; };
 		60FC5B54306A26A400043953 /* PortfolioDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioDataService.swift; sourceTree = "<group>"; };
 		60FC5B57306A271300043953 /* PortfolioContainer.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PortfolioContainer.xcdatamodel; sourceTree = "<group>"; };
+		60FC5B59306A47CB00043953 /* HapticManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -218,6 +220,7 @@
 			children = (
 				60FC5B2E3067792100043953 /* NetworkingManager.swift */,
 				60FC5B363067953200043953 /* LocalFileManager.swift */,
+				60FC5B59306A47CB00043953 /* HapticManager.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -345,6 +348,7 @@
 				60FC5B33306787B100043953 /* CoinImageService.swift in Sources */,
 				60FC5B533069026900043953 /* MockDataLoader.swift in Sources */,
 				60FC5B27306770CC00043953 /* SwiftfulCryptoApp.swift in Sources */,
+				60FC5B5A306A47CB00043953 /* HapticManager.swift in Sources */,
 				60FC5B55306A26A400043953 /* PortfolioDataService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

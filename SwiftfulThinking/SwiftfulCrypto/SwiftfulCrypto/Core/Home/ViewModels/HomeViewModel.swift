@@ -14,8 +14,9 @@ class HomeViewModel: ObservableObject {
     
     @Published var allCoins: [CoinModel] = []
     @Published var portfolioCoins: [CoinModel] = []
-    
+    @Published var isLoading = false
     @Published var searchText: String = ""
+    
     
     private let coinDataService: CoinDataService = CoinDataService()
     private let marketDataService = MarketDataService()
@@ -52,6 +53,7 @@ class HomeViewModel: ObservableObject {
             .map(mapGlobalMarketData)
             .sink { [weak self] returnedStats in
                 self?.statistics = returnedStats
+                self?.isLoading = false
             }
             .store(in: &cancellables)
     }
@@ -61,7 +63,10 @@ class HomeViewModel: ObservableObject {
     }
     
     func reloadData() {
-        
+        isLoading = true
+        coinDataService.getCoins()
+        marketDataService.getData()
+        HapticManager.notification(type: .success)
     }
     
     private func filterCoins(with text: String, in startingCoins: [CoinModel]) -> [CoinModel] {

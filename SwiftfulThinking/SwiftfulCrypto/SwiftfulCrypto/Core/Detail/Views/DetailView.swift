@@ -24,16 +24,78 @@ struct DetailView: View {
     
     @StateObject private var vm: DetailViewModel
     
+    private let columns = [
+        GridItem(.flexible()),
+        GridItem(.flexible())
+    ]
+    private let spacing: CGFloat = 30
+    
     init(coin: CoinModel) {
         self._vm = StateObject(wrappedValue: DetailViewModel(coin: coin))
         print("[🧿] Detail view initialized for \(coin.name)")
     }
     
     var body: some View {
-        Text(vm.coinDetails?.name ?? "")
+        ScrollView {
+            VStack(spacing: 20) {
+                Text("")
+                    .frame(height: 150)
+                
+                overviewTitle
+                Divider()
+                overviewGrid
+                additionalTitle
+                Divider()
+                additionalGrid
+            }
+            .padding()
+        }
+        .navigationTitle(vm.coin.name)
+    }
+}
+
+extension DetailView {
+    private var overviewTitle: some View {
+        Text("Overview")
+            .font(.title)
+            .bold()
+            .foregroundColor(Color.theme.accent)
+            .frame(maxWidth: .infinity, alignment: .leading)
+    }
+    
+    private var additionalTitle: some View {
+        Text("Additional Details")
+            .font(.title)
+            .bold()
+            .foregroundColor(Color.theme.accent)
+            .frame(maxWidth: .infinity, alignment: .leading)
+    }
+    
+    private var overviewGrid: some View {
+        LazyVGrid(
+            columns: columns,
+            alignment: .leading,
+            spacing: spacing) {
+                ForEach(vm.overviewStats) { stat in
+                    StatisticsView(stat: stat)
+                }
+            }
+    }
+    
+    private var additionalGrid: some View {
+        LazyVGrid(
+            columns: columns,
+            alignment: .leading,
+            spacing: spacing) {
+                ForEach(vm.additionalStats) { stat in
+                    StatisticsView(stat: stat)
+                }
+            }
     }
 }
 
 #Preview {
-    DetailView(coin: DeveloperPreview.instance.coin)
+    NavigationView {
+        DetailView(coin: DeveloperPreview.instance.coin)
+    }
 }

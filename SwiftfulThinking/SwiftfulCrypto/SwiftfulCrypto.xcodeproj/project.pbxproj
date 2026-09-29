@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6022FFEB306BC87300E9BDC0 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6022FFEA306BC87300E9BDC0 /* String.swift */; };
 		60FC5B1D306770CC00043953 /* CircleButtonAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60FC5B08306770CC00043953 /* CircleButtonAnimationView.swift */; };
 		60FC5B1E306770CC00043953 /* CircleButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60FC5B09306770CC00043953 /* CircleButtonView.swift */; };
 		60FC5B1F306770CC00043953 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60FC5B0C306770CC00043953 /* HomeViewModel.swift */; };
@@ -51,6 +52,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6022FFEA306BC87300E9BDC0 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		6084D92C306630340082335C /* SwiftfulCrypto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftfulCrypto.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		60FC5B08306770CC00043953 /* CircleButtonAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleButtonAnimationView.swift; sourceTree = "<group>"; };
 		60FC5B09306770CC00043953 /* CircleButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleButtonView.swift; sourceTree = "<group>"; };
@@ -190,6 +192,7 @@
 				60FC5B15306770CC00043953 /* PreviewProvider.swift */,
 				60FC5B6A306BAAB900043953 /* Date.swift */,
 				60FC5B3B3067D65700043953 /* UIApplication.swift */,
+				6022FFEA306BC87300E9BDC0 /* String.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -365,6 +368,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6022FFEB306BC87300E9BDC0 /* String.swift in Sources */,
 				60FC5B58306A271300043953 /* PortfolioContainer.xcdatamodeld in Sources */,
 				60FC5B2B3067711B00043953 /* CoinDataService.swift in Sources */,
 				60FC5B1D306770CC00043953 /* CircleButtonAnimationView.swift in Sources */,

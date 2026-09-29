@@ -19,6 +19,9 @@ class MockDataLoader {
         case MarketDataService.globalURL:
             return loadFromLocalJSON(fileName: "GlobalAPI")
             
+        case CoinDetailDataService.coinDetailURL(of: DeveloperPreview.instance.coin):
+            return loadFromLocalJSON(fileName: "CoinDetails")
+            
         default: break
         }
         

@@ -24,7 +24,7 @@ struct SettingsView: View {
         NavigationView {
             ZStack {
                 Color.theme.background
-                    .ignoresSafeArea()
+                    .ignoresSafeArea() // ⚠️ This is not working - solution is scrollContentBackground , but it will skip the list item background
                 
                 List {
                     swiftfulThinkingSection
@@ -34,7 +34,7 @@ struct SettingsView: View {
                     developerSection
                         .listRowBackground(Color.theme.background.opacity(0.5))
                 }
-                .scrollContentBackground(.hidden) // ⚠️ Deviation from course -.listRowBackground is not working because of this - this help to override list style opaque color setting
+//                .scrollContentBackground(.hidden) // ⚠️ Deviation from course -.listRowBackground is not working because of this - this help to override list style opaque color setting
             }
             .font(.headline)
             .accentColor(.blue)

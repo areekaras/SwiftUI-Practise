@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		6022FFEB306BC87300E9BDC0 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6022FFEA306BC87300E9BDC0 /* String.swift */; };
+		6022FFEE306CBA3B00E9BDC0 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6022FFED306CBA3B00E9BDC0 /* SettingsView.swift */; };
 		60FC5B1D306770CC00043953 /* CircleButtonAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60FC5B08306770CC00043953 /* CircleButtonAnimationView.swift */; };
 		60FC5B1E306770CC00043953 /* CircleButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60FC5B09306770CC00043953 /* CircleButtonView.swift */; };
 		60FC5B1F306770CC00043953 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60FC5B0C306770CC00043953 /* HomeViewModel.swift */; };
@@ -53,6 +54,7 @@
 
 /* Begin PBXFileReference section */
 		6022FFEA306BC87300E9BDC0 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		6022FFED306CBA3B00E9BDC0 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		6084D92C306630340082335C /* SwiftfulCrypto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftfulCrypto.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		60FC5B08306770CC00043953 /* CircleButtonAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleButtonAnimationView.swift; sourceTree = "<group>"; };
 		60FC5B09306770CC00043953 /* CircleButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleButtonView.swift; sourceTree = "<group>"; };
@@ -108,6 +110,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6022FFEC306CBA2400E9BDC0 /* SettingsView */ = {
+			isa = PBXGroup;
+			children = (
+				6022FFED306CBA3B00E9BDC0 /* SettingsView.swift */,
+			);
+			path = SettingsView;
+			sourceTree = "<group>";
+		};
 		6084D923306630340082335C = {
 			isa = PBXGroup;
 			children = (
@@ -180,6 +190,7 @@
 				60FC5B0B306770CC00043953 /* Components */,
 				60FC5B11306770CC00043953 /* Home */,
 				60FC5B5B306B52CB00043953 /* Detail */,
+				6022FFEC306CBA2400E9BDC0 /* SettingsView */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -380,6 +391,7 @@
 				60FC5B4A3068EF8E00043953 /* XMarkButton.swift in Sources */,
 				60FC5B443068C2AD00043953 /* MarketDataModel.swift in Sources */,
 				60FC5B313067855D00043953 /* CoinImageView.swift in Sources */,
+				6022FFEE306CBA3B00E9BDC0 /* SettingsView.swift in Sources */,
 				60FC5B21306770CC00043953 /* HomeView.swift in Sources */,
 				60FC5B3E3067F19A00043953 /* StatisticModel.swift in Sources */,
 				60FC5B3C3067D65700043953 /* UIApplication.swift in Sources */,

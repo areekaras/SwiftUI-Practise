@@ -26,6 +26,10 @@ struct PortfolioView: View {
                     }
                 }
             }
+            .background(
+                Color.theme.background
+                    .ignoresSafeArea()
+            )
             .navigationTitle("Edit Portfolio")
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
@@ -161,7 +165,13 @@ extension PortfolioView {
     }
 }
 
-#Preview {
+#Preview("dark") {
     PortfolioView()
         .environmentObject(DeveloperPreview.instance.homeVM)
+}
+
+#Preview("dark") {
+    PortfolioView()
+        .environmentObject(DeveloperPreview.instance.homeVM)
+        .preferredColorScheme(.dark)
 }

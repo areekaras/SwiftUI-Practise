@@ -22,10 +22,19 @@ struct SettingsView: View {
     
     var body: some View {
         NavigationView {
-            List {
-                swiftfulThinkingSection
-                coinGeckoSection
-                developerSection
+            ZStack {
+                Color.theme.background
+                    .ignoresSafeArea()
+                
+                List {
+                    swiftfulThinkingSection
+                        .listRowBackground(Color.theme.background.opacity(0.5))
+                    coinGeckoSection
+                        .listRowBackground(Color.theme.background.opacity(0.5))
+                    developerSection
+                        .listRowBackground(Color.theme.background.opacity(0.5))
+                }
+                .scrollContentBackground(.hidden) // ⚠️ Deviation from course -.listRowBackground is not working because of this - this help to override list style opaque color setting
             }
             .font(.headline)
             .accentColor(.blue)
@@ -72,6 +81,8 @@ extension SettingsView {
                     .clipShape(RoundedRectangle(cornerRadius: 10))
                 Text("This is Crypto Tracker App implemented with SwiftUI with fully coded in Swift. Used MVVM, Combine, etc")
                     .font(.callout)
+                    .fontWeight(.medium)
+                    .foregroundColor(Color.theme.accent)
             }
             Link(destination: coinGeckoURL) {
                 Text("Learn More here 🦎")
@@ -95,6 +106,8 @@ extension SettingsView {
                     .clipShape(RoundedRectangle(cornerRadius: 10))
                 Text("This is Crypto Tracker App implemented with SwiftUI with fully coded in Swift. Used MVVM, Combine, etc")
                     .font(.callout)
+                    .fontWeight(.medium)
+                    .foregroundColor(Color.theme.accent)
             }
             Link(destination: developerURL) {
                 Text("Learn More here 🥳")
@@ -110,6 +123,11 @@ extension SettingsView {
     }
 }
 
-#Preview {
+#Preview("Light mode") {
     SettingsView()
+}
+
+#Preview("Dark mode") {
+    SettingsView()
+        .preferredColorScheme(.dark)
 }

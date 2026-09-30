@@ -12,11 +12,18 @@ struct SwiftfulCryptoApp: App {
     
     @StateObject private var vm: HomeViewModel = HomeViewModel()
     
-    @State private var showLaunchView = true
+    @State private var showLaunchView = false // true // change back
     
     init() {
         UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor : UIColor(Color.theme.accent)]
         UINavigationBar.appearance().titleTextAttributes = [.foregroundColor : UIColor(Color.theme.accent)]
+        
+        UITableView.appearance().backgroundColor = UIColor.clear
+        
+        // Not working for detail screen - should be use of depricated navigation view
+        UINavigationBar.appearance().tintColor = UIColor(Color.theme.accent)
+        UIBarButtonItem.appearance().tintColor = UIColor(Color.theme.accent)
+        
     }
     
     var body: some Scene {

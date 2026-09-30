@@ -11,7 +11,7 @@ import Combine
 class NetworkingManager {
     
     //Enable this to load from mock if API fails
-    private static let enableMockData = true // false //
+    private static let enableMockData =  false // true //
     
     enum NetworkingErrors: LocalizedError {
         case badServerResponse(url: URL)

@@ -12,7 +12,7 @@ struct SwiftfulCryptoApp: App {
     
     @StateObject private var vm: HomeViewModel = HomeViewModel()
     
-    @State private var showLaunchView = false // true // change back
+    @State private var showLaunchView = true
     
     init() {
         UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor : UIColor(Color.theme.accent)]

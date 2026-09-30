@@ -8,7 +8,7 @@
 import SwiftUI
 
 /*
- The links and content of the screen are not accurate as per course this is study project. 
+ The links and content of the screen are not accurate as per course this is study project.
  */
 
 struct SettingsView: View {

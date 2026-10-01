@@ -35,6 +35,15 @@ class DownloadImageAsyncImageLoader {
             .mapError( { $0 } )
             .eraseToAnyPublisher()
     }
+    
+    func downloadImageWithAsync() async throws -> UIImage? {
+        do {
+            let (data, response) = try await URLSession.shared.data(from: url)
+            return handleReponse(data: data, response: response)
+        } catch {
+            throw error
+        }
+    }
 }
 
 class DownloadImageAsyncViewModel: ObservableObject {
@@ -44,14 +53,13 @@ class DownloadImageAsyncViewModel: ObservableObject {
     
     private var cancellables = Set<AnyCancellable>()
     
-    func fetchImage() {
+    func fetchImage() async {
         /*
         imageLoader.downloadImageWithEscaping { [weak self] image, _ in
             DispatchQueue.main.async {
                 self?.image = image
             }
         }
-         */
         
         imageLoader.dowloadImageWithCombine()
             .receive(on: DispatchQueue.main)
@@ -61,6 +69,12 @@ class DownloadImageAsyncViewModel: ObservableObject {
                 self?.image = image
             })
             .store(in: &cancellables)
+         */
+
+        let image = try? await imageLoader.downloadImageWithAsync()
+        await MainActor.run {
+            self.image = image
+        }
     }
 }
 
@@ -77,7 +91,9 @@ struct DownloadImageAsyncBootcamp: View {
             }
         }
         .onAppear {
-            vm.fetchImage()
+            Task {
+               await vm.fetchImage()
+            }
         }
     }
 }

@@ -28,6 +28,13 @@ class DownloadImageAsyncImageLoader {
         }
         .resume()
     }
+    
+    func dowloadImageWithCombine() -> AnyPublisher<UIImage?, Error> {
+        URLSession.shared.dataTaskPublisher(for: url)
+            .map(handleReponse)
+            .mapError( { $0 } )
+            .eraseToAnyPublisher()
+    }
 }
 
 class DownloadImageAsyncViewModel: ObservableObject {
@@ -35,12 +42,25 @@ class DownloadImageAsyncViewModel: ObservableObject {
     @Published var image: UIImage?
     let imageLoader = DownloadImageAsyncImageLoader()
     
+    private var cancellables = Set<AnyCancellable>()
+    
     func fetchImage() {
+        /*
         imageLoader.downloadImageWithEscaping { [weak self] image, _ in
             DispatchQueue.main.async {
                 self?.image = image
             }
         }
+         */
+        
+        imageLoader.dowloadImageWithCombine()
+            .receive(on: DispatchQueue.main)
+            .sink(receiveCompletion: { _ in
+                
+            }, receiveValue: { [weak self] image in
+                self?.image = image
+            })
+            .store(in: &cancellables)
     }
 }
 

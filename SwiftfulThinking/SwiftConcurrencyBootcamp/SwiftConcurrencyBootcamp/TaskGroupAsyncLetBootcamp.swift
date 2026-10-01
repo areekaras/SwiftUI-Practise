@@ -34,17 +34,20 @@ class TaskGroupAsyncLetImageManager {
             "https://picsum.photos/300"
         ]
         
-        return try await withThrowingTaskGroup(of: UIImage.self, returning: [UIImage].self) { group in
+        return try await withThrowingTaskGroup(of: UIImage?.self, returning: [UIImage].self) { group in
             var images = [UIImage]()
+            images.reserveCapacity(urlStrings.count) // Performance optimization
             
             for url in urlStrings {
                 group.addTask {
-                    try await self.fetchImage(from: url)
+                    try? await self.fetchImage(from: url)
                 }
             }
             
             for try await image in group {
-                images.append(image)
+                if let image {
+                    images.append(image)
+                }
             }
             
             return images

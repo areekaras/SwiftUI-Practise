@@ -16,3 +16,9 @@ Master SwiftUI
 > Build a cryptocurrency app that downloads live price data from an API and saves the current user's portfolio. Get comfortable with Combine, Core Data, and MVVM.
 
 [SwiftfulCrypto](https://github.com/areekaras/SwiftUI-Practise/tree/main/SwiftfulThinking/SwiftfulCrypto)
+
+## 4. Swift Concurrency (Intermediate Level)
+
+> Swift Concurrency is a major upgrade to the Swift language that completely changes how to write asynchronous code in Swift. Learn everything that you need to know.
+
+[Swift Concurrency Bootcamp](https://github.com/areekaras/SwiftUI-Practise/tree/main/SwiftfulThinking/SwiftConcurrencyBootcamp)
